@@ -11,16 +11,13 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #f4f4f4;
 }
 
 header {
-    background: linear-gradient(to right, #4CAF50, #2e7d32);
+    background-color: #4CAF50;
     color: white;
     padding: 20px 0;
     text-align: center;
-    position: relative;
-    z-index: 1;
 }
 
 nav {
@@ -28,13 +25,10 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    position: relative;
-    z-index: 2;
 }
 
 .logo {
     font-size: 1.5em;
-    font-weight: 700;
 }
 
 nav ul {
@@ -50,79 +44,53 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.1em;
-    transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: #ff9800;
 }
 
 .hero {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #ffffff;
-    border-bottom: 1px solid #ddd;
+    padding: 20px;
 }
 
 .hero h1 {
     font-size: 2.5em;
-    margin-bottom: 10px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hero p {
     font-size: 1.2em;
-    margin-bottom: 20px;
 }
 
-.hero .btn {
-    background-color: #ff9800;
-    color: white;
+.btn {
+    display: inline-block;
     padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
-.hero .btn:hover {
-    background-color: #e68900;
-    transform: scale(1.05);
+.btn:hover {
+    background-color: #45a049;
 }
 
 main {
     flex: 1;
     padding: 20px;
-    background: white;
-    margin: 20px auto;
-    max-width: 1200px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 section {
     margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    background: #f9f9f9;
-    position: relative;
-    overflow: hidden;
-}
-
-section h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-section p {
-    margin-bottom: 10px;
-}
-
-section ul {
-    list-style: disc;
-    padding-left: 20px;
 }
 
 .hidden {
     display: none;
+}
+
+#qr-code-container {
+    text-align: center;
+    margin: 20px 0;
 }
 
 footer {
@@ -135,8 +103,7 @@ footer {
 form {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
+    align-items: center;
 }
 
 form label {
@@ -148,7 +115,8 @@ form input {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1em;
+    width: 100%;
+    max-width: 400px;
 }
 
 form button {
@@ -158,25 +126,12 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    max-width: 400px;
 }
 
 form button:hover {
     background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Animations */
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-
-.slide-in {
-    animation: slideIn 1s ease-out;
-}
-
-.bounce-in {
-    animation: bounceIn 1s ease-out;
 }
 
 @keyframes fadeIn {
@@ -204,13 +159,25 @@ form button:hover {
         opacity: 0;
         transform: scale(0.5);
     }
-    50% {
+     50% {
         opacity: 1;
-        transform: scale(1.05);
+        transform: scale(1.2);
     }
     to {
         transform: scale(1);
     }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.slide-in {
+    animation: slideIn 1s ease-out;
+}
+
+.bounce-in {
+    animation: bounceIn 1s ease-out;
 }
 
 @media (max-width: 600px) {

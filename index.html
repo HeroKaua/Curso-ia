@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrious@latest/dist/qrious.min.js"></script>
 </head>
 <body>
     <header>
@@ -43,16 +44,18 @@
         </section>
         <section id="pricing" class="slide-in">
             <h2>Preço</h2>
-            <p>O valor justo para o "Curso Completo de Inteligência Artificial" é de R$ 29,99. Este valor reflete a qualidade do conteúdo, a experiência dos instrutores, e o suporte contínuo que você receberá durante o curso.</p>
+            <p>O valor do curso é de R$ 29,99. Este valor reflete a qualidade do conteúdo, a experiência dos instrutores, e o suporte contínuo que você receberá durante o curso.</p>
         </section>
         <section id="unlock-course" class="bounce-in">
             <h2>Desbloquear Curso</h2>
-            <p>Para desbloquear o curso, faça o pagamento via Pix usando a chave aleatória: <strong>6f8bbd14-4a74-984c-323e7efa6ecd</strong> e preencha o formulário abaixo com a chave utilizada no pagamento. Certifique-se de que o valor enviado seja de R$ 29,99.</p>
+            <p>Para desbloquear o curso, faça o pagamento via Pix utilizando o QR Code abaixo com a chave aleatória: <strong>6f8bbd14-4a74-984c-323e7efa6ecd</strong>. Após o pagamento, insira a chave no formulário para confirmar e liberar o acesso ao curso.</p>
+            <div id="qr-code-container">
+                <canvas id="qr-code"></canvas>
+                <p>Escaneie o QR Code para fazer o pagamento de R$ 29,99 via Pix.</p>
+            </div>
             <form id="payment-form">
                 <label for="key">Chave:</label>
                 <input type="text" id="key" name="key" placeholder="Digite a chave" required>
-                <label for="amount">Valor (R$):</label>
-                <input type="number" id="amount" name="amount" value="29.99" readonly>
                 <button type="submit" class="btn">Confirmar Pagamento</button>
             </form>
             <div id="course-content" class="hidden">
