@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Comprovante - KauãSites</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">KauãSites</div>
+    </header>
+    <main>
+        <h2>Enviar Comprovante de Pagamento</h2>
+        <form action="validate_payment.php" method="post" enctype="multipart/form-data">
+            <label for="receipt">Escolha o Comprovante:</label>
+            <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf" required>
+            <button type="submit" class="btn">Enviar Comprovante</button>
+        </form>
+    </main>
+    <footer>
+        <p>© Todos os direitos reservados a Kauã Camargo Ribeiro</p>
+    </footer>
+</body>
+</html>
