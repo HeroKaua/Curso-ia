@@ -11,6 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #f4f4f4;
 }
 
 header {
@@ -62,6 +63,8 @@ nav ul li a:hover {
 .hero {
     padding: 60px 20px;
     text-align: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
 }
 
 .hero h1 {
@@ -107,6 +110,7 @@ footer {
     color: white;
     text-align: center;
     padding: 15px;
+    margin-top: auto;
 }
 
 form {
@@ -206,4 +210,11 @@ form button:hover {
     }
 
     .hero p {
-        font-s
+        font-size: 1em;
+    }
+
+    #qr-code {
+        width: 150px;
+        height: 150px;
+    }
+}
