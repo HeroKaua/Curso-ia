@@ -14,10 +14,11 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background: linear-gradient(135deg, #4CAF50, #2C6B2F);
     color: white;
     padding: 20px 0;
     text-align: center;
+    position: relative;
 }
 
 nav {
@@ -25,10 +26,14 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    position: absolute;
+    width: 100%;
+    top: 0;
 }
 
 .logo {
-    font-size: 1.5em;
+    font-size: 1.8em;
+    font-weight: 700;
 }
 
 nav ul {
@@ -44,35 +49,41 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #FFC107;
 }
 
 .hero {
-    padding: 20px;
+    padding: 60px 20px;
+    text-align: center;
 }
 
 .hero h1 {
     font-size: 2.5em;
-    animation: fadeIn 1s ease-in-out;
+    margin-bottom: 10px;
 }
 
 .hero p {
     font-size: 1.2em;
+    margin-bottom: 20px;
 }
 
 .btn {
-    display: inline-block;
+    background-color: #FFC107;
+    color: #333;
     padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
+    border: none;
     border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
     transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: #45a049;
+    background-color: #FFA000;
 }
 
 main {
@@ -81,29 +92,24 @@ main {
 }
 
 section {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .hidden {
     display: none;
 }
 
-#qr-code-container {
-    text-align: center;
-    margin: 20px 0;
-}
-
 footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-top: 20px;
 }
 
 form label {
@@ -115,8 +121,6 @@ form input {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 100%;
-    max-width: 400px;
 }
 
 form button {
@@ -126,14 +130,27 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    max-width: 400px;
+    font-size: 1em;
 }
 
 form button:hover {
     background-color: #45a049;
 }
 
+#qr-code-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#qr-code {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -145,25 +162,25 @@ form button:hover {
 
 @keyframes slideIn {
     from {
-        transform: translateX(-100%);
+        transform: translateY(20px);
         opacity: 0;
     }
     to {
-        transform: translateX(0);
+        transform: translateY(0);
         opacity: 1;
     }
 }
 
 @keyframes bounceIn {
-    from {
+    0% {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.9);
     }
-     50% {
+    50% {
         opacity: 1;
-        transform: scale(1.2);
+        transform: scale(1.1);
     }
-    to {
+    100% {
         transform: scale(1);
     }
 }
@@ -181,19 +198,16 @@ form button:hover {
 }
 
 @media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-    }
-    
-    nav ul li {
-        margin: 10px 0;
-    }
-
     .hero h1 {
         font-size: 2em;
     }
 
     .hero p {
         font-size: 1em;
+    }
+
+    #qr-code {
+        width: 150px;
+        height: 150px;
     }
 }
