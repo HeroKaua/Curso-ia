@@ -52,7 +52,7 @@
                 <img src="pix.jpeg" alt="QR Code para Pagamento Pix" id="qr-code">
                 <p>Escaneie o QR Code para realizar o pagamento de R$ 29,99 via Pix.</p>
             </div>
-            <form id="payment-form">
+            <form id="payment-form" action="validate_payment.php" method="POST">
                 <label for="key">Chave:</label>
                 <input type="text" id="key" name="key" placeholder="Digite a chave" required>
                 <button type="submit" class="btn">Confirmar Pagamento</button>

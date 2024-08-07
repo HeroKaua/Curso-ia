@@ -1,12 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Configuração da variável para a chave correta
-    const correctKey = '6f8bbd14-4a74-984c-323e7efa6ecd';
-
-    // Função para validar a chave
-    function validateKey(inputKey) {
-        return inputKey === correctKey;
-    }
-
     // Manipulador de evento para o formulário de pagamento
     document.getElementById('payment-form').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -14,14 +6,30 @@ document.addEventListener('DOMContentLoaded', function() {
         // Obtém a chave inserida pelo usuário
         const keyInput = document.getElementById('key').value.trim();
 
-        // Valida a chave
-        if (validateKey(keyInput)) {
-            // Se a chave estiver correta, mostra o conteúdo do curso
-            document.getElementById('course-content').classList.remove('hidden');
-            alert('Curso desbloqueado com sucesso!');
-        } else {
-            // Se a chave estiver incorreta, exibe uma mensagem de erro
-            alert('Chave inválida. Por favor, verifique e tente novamente.');
-        }
+        // Envia a chave para o servidor para validação
+        fetch('validate_payment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                key: keyInput
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Se a chave estiver correta, mostra o conteúdo do curso
+                document.getElementById('course-content').classList.remove('hidden');
+                alert(data.message);
+            } else {
+                // Se a chave estiver incorreta, exibe uma mensagem de erro
+                alert(data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Houve um erro ao processar seu pagamento. Tente novamente mais tarde.');
+        });
     });
 });
