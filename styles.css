@@ -16,9 +16,10 @@ body {
 header {
     background: linear-gradient(135deg, #4CAF50, #2C6B2F);
     color: white;
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 nav {
@@ -29,6 +30,8 @@ nav {
     position: absolute;
     width: 100%;
     top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
 }
 
 .logo {
