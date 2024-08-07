@@ -1,23 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Gerar QR Code
-    const qr = new QRious({
-        element: document.getElementById('qr-code'),
-        value: 'PIX_KEY:6f8bbd14-4a74-984c-323e7efa6ecd|AMOUNT:29.99', // Formato que pode ser lido pelo seu sistema de pagamento
-        size: 250
-    });
-    
+    // Configuração da variável para a chave correta
+    const correctKey = '6f8bbd14-4a74-984c-323e7efa6ecd';
+
+    // Função para validar a chave
+    function validateKey(inputKey) {
+        return inputKey === correctKey;
+    }
+
+    // Manipulador de evento para o formulário de pagamento
     document.getElementById('payment-form').addEventListener('submit', function(event) {
         event.preventDefault();
-        
-        const keyInput = document.getElementById('key').value.trim();
-        const expectedKey = '6f8bbd14-4a74-984c-323e7efa6ecd';
 
-        if (keyInput === expectedKey) {
+        // Obtém a chave inserida pelo usuário
+        const keyInput = document.getElementById('key').value.trim();
+
+        // Valida a chave
+        if (validateKey(keyInput)) {
+            // Se a chave estiver correta, mostra o conteúdo do curso
             document.getElementById('course-content').classList.remove('hidden');
-            document.getElementById('payment-form').reset();
-            alert('Curso desbloqueado com sucesso! Você pode acessar o grupo no WhatsApp abaixo.');
+            alert('Curso desbloqueado com sucesso!');
         } else {
-            alert('Chave incorreta. Verifique a chave e tente novamente.');
+            // Se a chave estiver incorreta, exibe uma mensagem de erro
+            alert('Chave inválida. Por favor, verifique e tente novamente.');
         }
     });
 });
